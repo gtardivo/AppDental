@@ -1,0 +1,62 @@
+{% load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="screen" />
+  <title>AppDental</title>
+</head>
+<body>
+  
+    <nav class="navbar">
+        <a class="navbar__link" href="#">AppDental</a>
+      </nav>
+    <section class="search-section">
+        <h1 class="title">Pesquise um paciente<span class="title__detail"></h1>
+    
+        <form class="form">
+          <input class="form__input" type="text" class="form-control" id="buscar-paciente" name="buscar" placeholder="Exemplo: André, Felipe..."  aria-label="Buscar paciente"/>
+          <button type="submit" class="button">Pesquisar</button>
+        </form>
+    </section>
+{% for atribute in atributes%}
+<section class="results-section">
+<ul class="results">
+<li class="result">
+  <h3 class="result-description">
+    Nome
+  </h3>
+  <h2 class="result-title">
+    {{atribute.nome}}
+  </h2>
+</li>
+<li class="result">
+  <h2 class="result-description">
+    CPF
+  </h2>
+  <h3 class="result-description">
+    {{atribute.cpf}}
+  </h3>
+</li>
+<li class="result">
+  <h2 class="result-description">
+    Endereco
+  </h2>
+  <h3 class="result-description">
+    {{atribute.endereco}}
+  </h3>
+</li>
+<li class="result">
+  <h2 class="result-description">
+    cel
+  </h2>
+  <h3 class="result-description">
+    {{atribute.cel}}
+  </h3>
+</li>
+</ul>
+</section>
+{% endfor %}
+
+</body>
+</html>
