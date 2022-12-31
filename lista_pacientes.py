@@ -1,3 +1,7 @@
+from pacientes.models import Pacientes
+import os, django
+
+
 lista_pacientes = [
     {'nome':'urso','cpf': 'sim','endereco': 'não','cel': 'não'},
     {'nome':'javali','cpf': 'sim','endereco': 'não','cel': 'não'},
@@ -71,12 +75,9 @@ lista_pacientes = [
     {'nome':'carriça','cpf': 'não','endereco': 'não','cel': 'não'}
 ]
 
-import os, django
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'setup.settings')
 django.setup()
 
-from pacientes.models import Pacientes
 
 def gerando_pacientes():
     for paciente in lista_pacientes:
@@ -87,5 +88,7 @@ def gerando_pacientes():
         paciente = Pacientes(nome=nome, cpf=cpf, endereco=endereco, cel=cel)
         paciente.save()
 
+
 gerando_pacientes()
+
 print('pacientes gerados')
